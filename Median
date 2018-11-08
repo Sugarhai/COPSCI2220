@@ -1,0 +1,19 @@
+#include <stdio.h>
+void seperate(float*, int*, float*);
+int main(void){
+  float x;
+
+  printf("Enter a float:");
+  scanf("%f", &x);
+
+  int whole;
+  float remain;
+  seperate(&x, &whole, &remain);
+  return 0;
+}
+void seperate(float* x, int* whole, float* remain){
+*whole = *x;
+*remain = *x - *whole;
+printf("Value of whole: %d\n", *whole);
+printf("Value of remain: %f\n", *remain);
+}

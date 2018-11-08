@@ -1,0 +1,71 @@
+/*This program is written by
+Hayley Lewter
+N01390898
+*/
+#include <stdio.h>
+#include <math.h>
+
+//Functions
+int PrintInstructions();
+void GetData(float*, float*, float*);
+double AccelerationDisplacement(float vi, float t, float a);
+void PrintOutput(double result, float vi, float t, float a);
+
+//main
+int main(void){
+
+//This program...
+  printf("This program will compute the distance travelled by a vehicle given its initial in meters per second, acceleration in meters per second, and time in seconds.\n\n");
+
+  PrintInstructions();
+
+  return 0;
+}
+//Quit Instructions
+int PrintInstructions(){
+  char x;
+  float vi;
+  float t;
+  float a;
+  
+  printf("To quit enter 'q', to continue enter any other character:", x);
+  scanf(" %c", &x);
+  //use if...else
+  if(x != 'Q' && x != 'q'){
+    AccelerationDisplacement(vi, t, a);
+  }else{
+    ;
+  }
+
+}
+//Prompt user for data
+//func call input
+void GetData(float* vi, float* t, float* a){
+  printf("\n\tEnter the vehicle's initial velocity in m/s:", *vi);
+  scanf("%f", vi);
+
+  printf("\tEnter the time the vehicle travels in seconds:", *t);
+  scanf("%f", t);
+
+  printf("\tEnter the rate of acceleration in m/s:", *a);
+  scanf("%f", a);
+}
+//Call saved data
+//Calculate Displacement from data
+//func call math
+double AccelerationDisplacement(float vi, float t, float a){
+  GetData(&vi, &t, &a);
+  double result;
+  result = (vi * t) + (.5 * a) * pow(t, 2);
+  PrintOutput(result, vi, t, a);
+}
+//func call output
+void PrintOutput(double result, float vi, float t, float a){
+//Display output
+ printf("\n\t*************************************************");
+ printf("\n\t*\tThe distance travelled in meters\t*\t\n");
+ printf("\t*\tis : %7.2f meters\t\t\t*\t\n", result);
+ //display input of variables
+ printf("\t*\tvi:%6.2f a:%6.2f t:%6.2f\t\t*\n", vi, a, t);
+ printf("\t*************************************************\n");
+}

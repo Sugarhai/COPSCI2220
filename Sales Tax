@@ -1,0 +1,88 @@
+#include <stdio.h>
+#define SALES_TAX .0825
+
+int main(void)
+{
+  const float TV = 400;
+  const float VCR = 220;
+  const float REMOTE = 35.20;
+  const float CD = 300;
+  const float TAPE = 150;
+
+  float tvPrice;
+  float vcrPrice;
+  float remotePrice;
+  float cdPrice;
+  float tapePrice;
+
+  float subtotal;
+  float tax;
+  float total;
+
+  int Q1;
+  int Q2;
+  int Q3;
+  int Q4;
+  int Q5;
+
+    printf("\n");
+
+  //Promt User for quanities
+  printf("How many TVs were sold?", Q1);
+  scanf("%d", &Q1);
+  printf("How many VCRs were sold?", Q2);
+  scanf("%d", &Q2);
+  printf("How many remote controls were sold?", Q3);
+  scanf("%d", &Q3);
+  printf("How many CD players were sold?", Q4);
+  scanf("%d", &Q4);
+  printf("How many tape recorders were sold?", Q5);
+  scanf("%d", &Q5);
+
+    printf("\n\n");
+
+  //Display table
+
+  printf("QTY\tDESCRIPTION\t");
+  printf("UNIT PRICE\tTOTAL PRICE\n");
+  printf("---\t-----------\t----------\t-----------\n");
+  //TV Row
+  printf("%d\t", Q1);
+  printf("TV         \t%10.2f\t", TV);
+  tvPrice = Q1 * TV;
+  printf("%11.2f\n", tvPrice);
+  //VCR Row
+  printf("%d\t", Q2);
+  printf("VCR        \t%10.2f\t", VCR);
+  vcrPrice = Q2 * VCR;
+  printf("%11.2f\n", vcrPrice);
+  //Remote Row
+  printf("%d\t", Q3);
+  printf("REMOTE CTRLR\t%10.2f\t", REMOTE);
+  remotePrice = Q3 * REMOTE;
+  printf("%11.2f\n", remotePrice);
+  //CD Row
+  printf("%d\t", Q4);
+  printf("CD PLAYER  \t%10.2f\t", CD);
+  cdPrice = Q4 * CD;
+  printf("%11.2f\n", cdPrice);
+  //Tape Row
+  printf("%d\t", Q5);
+  printf("TAPE RECORDER\t%10.2f\t", TAPE);
+  tapePrice = Q5 * TAPE;
+  printf("%11.2f\n", tapePrice);
+
+  //Subtotal
+  subtotal = tvPrice + vcrPrice + remotePrice + cdPrice + tapePrice;
+  printf("\t\t\t\t\t-----------\n");
+  printf("\t\t\t  SUBTOTAL\t%11.2f\n", subtotal);
+
+  //Tax
+  tax = subtotal * SALES_TAX;
+  printf("\t\t\t  TAX     \t%11.2f\n", tax);
+
+  //Total
+  total = subtotal + tax;
+  printf("\t\t\t  TOTAL   \t%11.2f\n\n", total);
+return 0;
+}
